@@ -1,19 +1,21 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { userContext } from '../../context/UserContext';
 import './Login.css'
 
 const Login = () => {
     const navigate = useNavigate()
+
+    const { setUser } = useContext(userContext)
 
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
 
     let user = JSON.parse(localStorage.getItem('user'))
 
-
     useEffect(() => {
-        if(user){
+        if (user) {
             navigate('/')
         }
     }, [user, loading, navigate])
@@ -23,23 +25,28 @@ const Login = () => {
     const handleLogin = event => {
         event.preventDefault()
         const { email, password } = event.target
+        setLoading(true)
         axios.get('/json/user.json')
             .then(res => {
                 const isUser = res.data.find(user => user?.email === email?.value)
                 if (!isUser) {
                     setError("user not found")
+                    setLoading(false)
                     return
                 }
                 if (isUser?.password === password?.value) {
+                    setUser(isUser)
                     localStorage.setItem('user', JSON.stringify(isUser))
+                    setLoading(false)
                     setError('')
                     return
                 } else {
                     setError("Email and password doesn't match")
+                    setLoading(false)
                 }
             })
     }
-    
+
 
     return (
         <div className='login'>

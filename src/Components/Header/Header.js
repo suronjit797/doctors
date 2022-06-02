@@ -1,19 +1,23 @@
 import { faCalendarCheck, faCalendarDays, faGear, faMaskFace, faPen, faPenFancy, faPersonCirclePlus, faPowerOff, faScrewdriverWrench, faUser, faUserAstronaut, faUserDoctor, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import './Header.css'
 
 import doctor from '../../imges/doctor.png'
-import { faPiedPiper, faPiedPiperSquare } from '@fortawesome/free-brands-svg-icons';
+import { faPiedPiperSquare } from '@fortawesome/free-brands-svg-icons';
+import { userContext } from '../../context/UserContext';
 
 const Header = () => {
-
+    const { setUser } = useContext(userContext)
     const [open, setOpen] = useState(false)
     const [modal, setModal] = useState(false)
 
 
-
+const logout = () =>{
+    localStorage.removeItem('user')
+    setUser({})
+}
 
 
     return (
@@ -40,7 +44,7 @@ const Header = () => {
                             </div>
                             <hr />
                             <div>
-                                <p className='d-flex align-items-center red-color' >
+                                <p className='d-flex align-items-center red-color' onClick={logout}>
                                     <FontAwesomeIcon icon={faPowerOff} /> Logout
                                 </p>
                             </div>
