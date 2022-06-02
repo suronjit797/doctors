@@ -1,4 +1,4 @@
-import { faCalendarCheck, faCalendarDays, faPen, faPenFancy, faPersonCirclePlus, faScrewdriverWrench, faUser, faUserAstronaut, faUserDoctor, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarCheck, faCalendarDays, faGear, faMaskFace, faPen, faPenFancy, faPersonCirclePlus, faPowerOff, faScrewdriverWrench, faUser, faUserAstronaut, faUserDoctor, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { faPiedPiper, faPiedPiperSquare } from '@fortawesome/free-brands-svg-ico
 const Header = () => {
 
     const [open, setOpen] = useState(false)
-    const [modal, setModal] = useState(true)
+    const [modal, setModal] = useState(false)
 
 
 
@@ -28,14 +28,31 @@ const Header = () => {
                     <li> <NavLink to="/home"> <FontAwesomeIcon icon={faPersonCirclePlus} />  </NavLink></li>
                     <li> <NavLink to="/home"> <FontAwesomeIcon icon={faCalendarDays} />  </NavLink></li>
                     <li> <NavLink to="/home"> <FontAwesomeIcon icon={faPen} />  </NavLink></li>
-                    <li> <img src={doctor} alt="doctor" /> </li>
+                    <li className='user_profile' onClick={() => setModal(!modal)}>
+                        <img src={doctor} alt="doctor" />
+                        <div className={`user_profile-modal ${modal ? 'active' : ''}`}  >
+                            <div>Welcome, Name</div>
+                            <hr />
+                            <div>
+                                <p className='d-flex align-items-center' >
+                                    <FontAwesomeIcon icon={faGear} /> Update profile
+                                </p>
+                            </div>
+                            <hr />
+                            <div>
+                                <p className='d-flex align-items-center red-color' >
+                                    <FontAwesomeIcon icon={faPowerOff} /> Logout
+                                </p>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
 
             <div className={`side_menu ${open ? 'active' : ''}`} >
                 <ul className='side_menu-body'>
                     <li className="close"> <FontAwesomeIcon icon={faXmark} onClick={() => setOpen(false)} /> </li>
-                    <h1 className='text-center white-color'> Doctor's portal </h1>
+                    <h1 className='text-center white-color'>  <FontAwesomeIcon icon={faMaskFace} />   Doctor's portal </h1>
                     <li className='profile'>
                         <img src={doctor} alt="doctor" />
                         <p className='name'> name </p>
