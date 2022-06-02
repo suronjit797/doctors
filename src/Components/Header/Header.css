@@ -48,6 +48,8 @@
     transform: scaleY(0);
     transform-origin: top;
     transition: .3s ease;
+    background-color: #fff;
+    border-radius: 5px;
 }
 
 .main_menu .user_profile-modal.active{

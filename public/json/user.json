@@ -3,35 +3,42 @@
         "name": "Harris Keith",
         "email": "harriskeith@bytrex.com",
         "user": "staff",
-        "password": 123123,
+        "password": "123123",
+        "userImage": "images/doctor.png"
+    },
+    {
+        "name": "Suronjit pal",
+        "email": "suronjit797@gmail.com",
+        "user": "admin",
+        "password": "123123",
         "userImage": "images/doctor.png"
     },
     {
         "name": "Ina Cruz",
         "email": "inacruz@bytrex.com",
         "user": "admin",
-        "password": 123123,
+        "password": "123123",
         "userImage": "images/doctor.png"
     },
     {
         "name": "Maria Saunders",
         "email": "mariasaunders@bytrex.com",
         "user": "d0ctor",
-        "password": 123123,
+        "password": "123123",
         "userImage": "images/doctor.png"
     },
     {
         "name": "Moss Steele",
         "email": "mosssteele@bytrex.com",
         "user": "admin",
-        "password": 123123,
+        "password": "123123",
         "userImage": "images/doctor.png"
     },
     {
         "name": "Snyder Woodward",
         "email": "snyderwoodward@bytrex.com",
         "user": "doctor",
-        "password": 123123,
+        "password": "123123",
         "userImage": "images/doctor.png"
     }
 ]
