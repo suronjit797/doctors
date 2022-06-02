@@ -1,0 +1,48 @@
+:root{
+  --primary-color: #6c5ce7;
+  --primary-color-dark: #3d2eb4;
+
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,a:hover{
+  text-decoration: none;
+}
+
+
+/*****************************
+************* global**********
+******************************/
+.container {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+  }
+}
