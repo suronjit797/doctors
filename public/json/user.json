@@ -9,28 +9,28 @@
     {
         "name": "Ina Cruz",
         "email": "inacruz@bytrex.com",
-        "user": "staff",
+        "user": "admin",
         "password": 123123,
         "userImage": "images/doctor.png"
     },
     {
         "name": "Maria Saunders",
         "email": "mariasaunders@bytrex.com",
-        "user": "staff",
+        "user": "d0ctor",
         "password": 123123,
         "userImage": "images/doctor.png"
     },
     {
         "name": "Moss Steele",
         "email": "mosssteele@bytrex.com",
-        "user": "staff",
+        "user": "admin",
         "password": 123123,
         "userImage": "images/doctor.png"
     },
     {
         "name": "Snyder Woodward",
         "email": "snyderwoodward@bytrex.com",
-        "user": "staff",
+        "user": "doctor",
         "password": 123123,
         "userImage": "images/doctor.png"
     }

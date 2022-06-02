@@ -15,6 +15,10 @@ a,a:hover{
   text-decoration: none;
 }
 
+img{
+  max-width: 100%;
+}
+
 
 /*****************************
 ************* global**********
@@ -45,4 +49,26 @@ a,a:hover{
   .container {
     width: 1140px;
   }
+}
+
+.primary-color{
+  color: var(--primary-color);
+}
+.primary-dark-color{
+  color: var(--primary-color-dark);
+}
+.white-color{
+  color: #fff;
+}
+
+.d-none{
+  display: none;
+}
+
+.d-block{
+  display: block;
+}
+
+.text-center{
+  text-align: center;
 }
