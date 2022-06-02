@@ -1,16 +1,17 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import Card from '../Components/Card/Card';
+import Card from '../../Components/Card/Card';
+import './Doctors.css'
 
-const Staff = () => {
-    const [staffs, setStaffs] = useState([])
+const Doctors = () => {
+    const [doctors, setDoctors] = useState([])
 
     useEffect(() => {
         axios.get('/json/user.json')
             .then(res => {
                 if (res.data) {
-                    const staff = res.data.filter(usr => usr.userRole.toLowerCase() === 'staff')
-                    setStaffs(staff);
+                    const doctors = res.data.filter(usr => usr.userRole.toLowerCase() === 'doctor')
+                    setDoctors(doctors);
                 }
             })
     }, [])
@@ -18,12 +19,11 @@ const Staff = () => {
 
 
     return (
-
         <div className='container'>
             <div className="grid_card">
                 {
-                    staffs && staffs.map((staff, index) => (
-                        <Card key={index} user={staff} />
+                    doctors && doctors.map((doctor, index) => (
+                        <Card key={index} user={doctor} />
                     ))
                 }
             </div>
@@ -31,4 +31,4 @@ const Staff = () => {
     );
 };
 
-export default Staff;
+export default Doctors;

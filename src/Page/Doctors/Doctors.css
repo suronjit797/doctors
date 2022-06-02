@@ -1,0 +1,22 @@
+.grid_card {
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 30px;
+}
+
+
+
+@media (min-width: 768px) {
+    .grid_card {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .grid_card {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}

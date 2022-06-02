@@ -9,15 +9,15 @@ import { faPiedPiperSquare } from '@fortawesome/free-brands-svg-icons';
 import { userContext } from '../../context/UserContext';
 
 const Header = () => {
-    const { setUser } = useContext(userContext)
+    const { user, setUser } = useContext(userContext)
     const [open, setOpen] = useState(false)
     const [modal, setModal] = useState(false)
 
 
-const logout = () =>{
-    localStorage.removeItem('user')
-    setUser({})
-}
+    const logout = () => {
+        localStorage.removeItem('user')
+        setUser({})
+    }
 
 
     return (
@@ -33,18 +33,18 @@ const logout = () =>{
                     <li> <NavLink to="/home"> <FontAwesomeIcon icon={faCalendarDays} />  </NavLink></li>
                     <li> <NavLink to="/home"> <FontAwesomeIcon icon={faPen} />  </NavLink></li>
                     <li className='user_profile' onClick={() => setModal(!modal)}>
-                        <img src={doctor} alt="doctor" />
+                        <img src={user.userImage} alt="doctor" />
                         <div className={`user_profile-modal ${modal ? 'active' : ''}`}  >
-                            <div>Welcome, Name</div>
+                            <div>Welcome, {user.name}</div>
                             <hr />
                             <div>
-                                <p className='d-flex align-items-center' >
+                                <p className='d-flex align-items-center  cursor-pointer' >
                                     <FontAwesomeIcon icon={faGear} /> Update profile
                                 </p>
                             </div>
                             <hr />
                             <div>
-                                <p className='d-flex align-items-center red-color' onClick={logout}>
+                                <p className='d-flex align-items-center red-color cursor-pointer' onClick={logout}>
                                     <FontAwesomeIcon icon={faPowerOff} /> Logout
                                 </p>
                             </div>
@@ -56,11 +56,13 @@ const logout = () =>{
             <div className={`side_menu ${open ? 'active' : ''}`} >
                 <ul className='side_menu-body'>
                     <li className="close"> <FontAwesomeIcon icon={faXmark} onClick={() => setOpen(false)} /> </li>
-                    <h1 className='text-center white-color'>  <FontAwesomeIcon icon={faMaskFace} />   Doctor's portal </h1>
+                    <Link to='/'>
+                        <h1 className='text-center white-color'>  <FontAwesomeIcon icon={faMaskFace} />   Doctor's portal </h1>
+                    </Link>
                     <li className='profile'>
-                        <img src={doctor} alt="doctor" />
-                        <p className='name'> name </p>
-                        <p className='role'> admin </p>
+                        <img src={user.userImage} alt="doctor" />
+                        <p className='name'> {user.name} </p>
+                        <p className='role'> {user.userRole} </p>
                     </li>
                     <li> <FontAwesomeIcon icon={faPiedPiperSquare} />  <NavLink to="/">  Dashboard </NavLink></li>
                     <li> <FontAwesomeIcon icon={faUserAstronaut} />  <NavLink to="/admin"> Admin </NavLink></li>

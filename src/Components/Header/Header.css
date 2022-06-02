@@ -151,7 +151,7 @@
     display: inline-block;
 }
 
-.side_menu-body a::after{
+.side_menu-body li a::after{
     content: '';
     position: absolute;
     bottom: 0;

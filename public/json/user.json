@@ -2,43 +2,45 @@
     {
         "name": "Harris Keith",
         "email": "harriskeith@bytrex.com",
-        "user": "staff",
+        "userRole": "staff",
         "password": "123123",
-        "userImage": "images/doctor.png"
+        "userImage": "images/doctor1.jpg"
     },
     {
         "name": "Suronjit pal",
         "email": "suronjit797@gmail.com",
-        "user": "admin",
+        "userRole": "admin",
         "password": "123123",
-        "userImage": "images/doctor.png"
+        "userImage": "images/doctor4.jpg"
     },
     {
         "name": "Ina Cruz",
         "email": "inacruz@bytrex.com",
-        "user": "admin",
+        "userRole": "admin",
         "password": "123123",
-        "userImage": "images/doctor.png"
+        "userImage": "images/doctor2.jpg"
     },
     {
         "name": "Maria Saunders",
         "email": "mariasaunders@bytrex.com",
-        "user": "d0ctor",
+        "userRole": "doctor",
+        "specialty": "dentist",
         "password": "123123",
-        "userImage": "images/doctor.png"
+        "userImage": "images/doctor3.jpg"
     },
     {
         "name": "Moss Steele",
         "email": "mosssteele@bytrex.com",
-        "user": "admin",
+        "userRole": "admin",
         "password": "123123",
-        "userImage": "images/doctor.png"
+        "userImage": "images/doctor1.jpg"
     },
     {
         "name": "Snyder Woodward",
         "email": "snyderwoodward@bytrex.com",
-        "user": "doctor",
+        "userRole": "doctor",
+        "specialty": "dentist",
         "password": "123123",
-        "userImage": "images/doctor.png"
+        "userImage": "images/doctor4.jpg"
     }
 ]
