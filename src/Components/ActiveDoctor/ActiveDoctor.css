@@ -1,0 +1,48 @@
+.activeDoctorCard{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    height: 100%;
+}
+
+.activeDoctorCard .bannerImg{
+    height: 150px;
+    background-color: var(--primary-color);
+}
+
+.activeDoctorCard .bannerImg img{
+    height: 100%;
+    width: 100%;
+    opacity: .6;
+}
+
+.activeDoctorCard .profileImg img{
+    height:100px;
+    width: 100px;
+    display: block;
+    margin: auto;
+    margin-top: -50px;
+    position: relative;
+    z-index: 2;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+}
+
+.activeDoctorCard .profileBody .profileDetails{
+    padding: 20px 10px;
+}
+
+.activeDoctorCard hr{
+    border: transparent;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 10px 0;
+    height: 1px;
+}
+
+.profileBottom{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 10px;
+}
+
+.profileBottom .left{
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Area, AreaChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 import './Rechart.css'
 
@@ -7,7 +7,7 @@ const Recharts = ({ data, name }) => {
     return (
         <div className='rechart'>
             <h4 className='mb-3 text-center'> {name} </h4>
-            <ResponsiveContainer aspect={2}>
+            <ResponsiveContainer aspect={3}>
                 <AreaChart data={data}
                     margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                     <defs>

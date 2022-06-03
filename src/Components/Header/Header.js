@@ -7,11 +7,13 @@ import './Header.css'
 import doctor from '../../imges/doctor.png'
 import { faPiedPiperSquare } from '@fortawesome/free-brands-svg-icons';
 import { userContext } from '../../context/UserContext';
+import AddOne from '../AddOne/AddOne';
 
 const Header = () => {
     const { user, setUser } = useContext(userContext)
     const [open, setOpen] = useState(false)
     const [modal, setModal] = useState(false)
+    const [addOne, setAddOne] = useState(false)
 
 
     const logout = () => {
@@ -29,9 +31,9 @@ const Header = () => {
                     <span></span>
                 </div>
                 <ul className={`main_menu ${open ? 'active' : ''}`}>
-                    <li> <NavLink to="/home"> <FontAwesomeIcon icon={faPersonCirclePlus} />  </NavLink></li>
-                    <li> <NavLink to="/home"> <FontAwesomeIcon icon={faCalendarDays} />  </NavLink></li>
-                    <li> <NavLink to="/home"> <FontAwesomeIcon icon={faPen} />  </NavLink></li>
+                    <li onClick={() => setAddOne(true)} ><FontAwesomeIcon icon={faPersonCirclePlus} /> </li>
+                    <li><FontAwesomeIcon icon={faCalendarDays} /> </li>
+                    <li><FontAwesomeIcon icon={faPen} /> </li>
                     <li className='user_profile' onClick={() => setModal(!modal)}>
                         <img src={user.userImage} alt="doctor" />
                         <div className={`user_profile-modal ${modal ? 'active' : ''}`}  >
@@ -70,6 +72,8 @@ const Header = () => {
                     <li> <FontAwesomeIcon icon={faUserDoctor} /> <NavLink to="/staff">   Staff </NavLink></li>
                 </ul>
             </div>
+
+            <AddOne addOne={addOne} setAddOne={setAddOne} />
 
         </header>
     );

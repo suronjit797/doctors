@@ -1,4 +1,5 @@
 import React from 'react';
+import ActiveDoctor from '../Components/ActiveDoctor/ActiveDoctor';
 import DoctorsShort from '../Components/DoctorsShort.js/DoctorsShort';
 import RCalendar from '../Components/RCalendar/RCalendar';
 import Recharts from '../Components/Recharts/Recharts';
@@ -60,6 +61,9 @@ const Dashboard = () => {
                 </div>
                 <div className="calendar py-4">
                     <RCalendar />
+                </div>
+                <div className="activeDoctors py-4">
+                    <ActiveDoctor />
                 </div>
             </div>
 

@@ -2,8 +2,10 @@ import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { useState } from 'react';
+import './AddOne.css'
 
-const RegisterPatient = ({ addOne, setAddOne }) => {
+const AddOne = ({ addOne, setAddOne }) => {
+
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [post, setPost] = useState('doctors')
@@ -65,4 +67,4 @@ const RegisterPatient = ({ addOne, setAddOne }) => {
     );
 };
 
-export default RegisterPatient;
+export default AddOne;
