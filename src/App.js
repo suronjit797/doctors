@@ -5,7 +5,6 @@ import './App.css'
 
 
 import 'react-calendar/dist/Calendar.css';
-import Header from "./Components/Header/Header";
 import RequireAuth from "./Components/RequireAuth/RequireAuth";
 import Dashboard from "./Page/Dashboard";
 import Login from "./Page/Login/Login";
@@ -21,7 +20,7 @@ function App() {
       <userContext.Provider value={{ user, setUser }}>
         <Routes>
           <Route path="/" element={<RequireAuth> <Dashboard /> </RequireAuth>} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<RequireAuth><Login /></RequireAuth>} />
           <Route path="/users" element={<RequireAuth> <Users /> </RequireAuth>} />
           <Route path="/patients" element={<RequireAuth> <Staff /> </RequireAuth>} />
         </Routes>

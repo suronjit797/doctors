@@ -1,8 +1,10 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Header from '../../Components/Header/Header';
+import { userContext } from '../../context/UserContext';
 
 const Staff = () => {
+    const { user, setUser } = useContext(userContext)
     const [patient, setPatient] = useState([])
     useEffect(() => {
         axios.get('/json/patient.json')
@@ -12,6 +14,7 @@ const Staff = () => {
         <div>
             <Header />
             <div className="container">
+                <h3 className='text-center py-4'> All patient </h3>
                 <table>
                     <thead>
                         <tr>
@@ -20,7 +23,9 @@ const Staff = () => {
                             <th>Disease</th>
                             <th>Gender</th>
                             <th>Date</th>
-                            <th>Action</th>
+                            {
+                                !(user?.userRole === 'doctor') && <th>Action</th>
+                            }
                         </tr>
                     </thead>
                     <tbody>
@@ -32,7 +37,16 @@ const Staff = () => {
                                     <td> {pt.disease} </td>
                                     <td> {pt.gender} </td>
                                     <td> {new Date(pt.date).toLocaleDateString()} </td>
-                                    <td> <button disabled={pt.isVisited} className='button_primary'> Visited </button> </td>
+                                    {
+                                        !(user?.userRole === 'doctor') && <td>
+                                            {
+                                                pt.isVisited ? <button className='button_red' disabled=""> Delete </button>
+                                                    :
+                                                    <button className='button_primary' disabled=""> Visited </button>
+                                            }
+                                        </td>
+                                    }
+
                                 </tr>
                             ))
                         }

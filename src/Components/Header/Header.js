@@ -35,15 +35,15 @@ const Header = () => {
                 </div>
                 <ul className={`main_menu ${open ? 'active' : ''}`}>
                     {
-                        !!(user.userRole === "admin") && <li onClick={() => setAddOne(true)} ><FontAwesomeIcon icon={faPersonCirclePlus} /> </li>
+                        !!(user?.userRole === "admin") && <li onClick={() => setAddOne(true)} ><FontAwesomeIcon icon={faPersonCirclePlus} /> </li>
                     }
 
                     {
-                        !!(user.userRole === "doctor") && <li onClick={() => setDoctor(true)}><FontAwesomeIcon icon={faCalendarDays} /> </li>
+                        !!(user?.userRole === "doctor") && <li onClick={() => setDoctor(true)}><FontAwesomeIcon icon={faCalendarDays} /> </li>
                     }
 
                     {
-                        !!(user.userRole === "staff") && <li onClick={() => setRegister(true)} ><FontAwesomeIcon icon={faPen} /> </li>
+                        !!(user?.userRole === "staff") && <li onClick={() => setRegister(true)} ><FontAwesomeIcon icon={faPen} /> </li>
                     }
 
 
@@ -81,9 +81,9 @@ const Header = () => {
                     </li>
                     <li> <FontAwesomeIcon icon={faPiedPiperSquare} />  <NavLink to="/">  Dashboard </NavLink></li>
                     {
-                        !!(user.userRole === "admin") && <li> <FontAwesomeIcon icon={faUser} />  <NavLink to="/users">  Users </NavLink></li>
+                        !!(user?.userRole === "admin") && <li> <FontAwesomeIcon icon={faUser} />  <NavLink to="/users">  Users </NavLink></li>
                     }
-                    <li> <FontAwesomeIcon icon={faUserDoctor} /> <NavLink to="/patients">   Patients </NavLink></li>
+                    <li> <FontAwesomeIcon icon={faUserDoctor} /> <NavLink to="/patients">  All Patients </NavLink></li>
 
 
 

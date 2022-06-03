@@ -9,6 +9,7 @@ const RequireAuth = ({children}) => {
     useEffect(() => {
         if(!user){
             navigate('/login')
+            return
         }
     }, [user, navigate])
 
