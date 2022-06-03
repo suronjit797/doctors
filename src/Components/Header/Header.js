@@ -66,7 +66,7 @@ const Header = () => {
                     </li>
                     <li> <FontAwesomeIcon icon={faPiedPiperSquare} />  <NavLink to="/">  Dashboard </NavLink></li>
                     <li> <FontAwesomeIcon icon={faUserAstronaut} />  <NavLink to="/admin"> Admin </NavLink></li>
-                    <li> <FontAwesomeIcon icon={faUser} />  <NavLink to="/doctor">  Doctor </NavLink></li>
+                    <li> <FontAwesomeIcon icon={faUser} />  <NavLink to="/users">  Users </NavLink></li>
                     <li> <FontAwesomeIcon icon={faUserDoctor} /> <NavLink to="/staff">   Staff </NavLink></li>
                 </ul>
             </div>
