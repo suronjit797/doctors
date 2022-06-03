@@ -101,6 +101,7 @@
     left: -300%;
     width: 100%;
     transition: all .7s ease-out;
+    z-index: 20;
 }
 
 .side_menu.active {

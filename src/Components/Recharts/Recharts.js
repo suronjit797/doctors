@@ -3,9 +3,10 @@ import { Area, AreaChart, CartesianGrid, Line, LineChart, ResponsiveContainer, T
 
 import './Rechart.css'
 
-const Recharts = ({ data }) => {
+const Recharts = ({ data, name }) => {
     return (
         <div className='rechart'>
+            <h4 className='mb-3 text-center'> {name} </h4>
             <ResponsiveContainer aspect={2}>
                 <AreaChart data={data}
                     margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>

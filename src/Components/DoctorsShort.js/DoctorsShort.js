@@ -19,13 +19,13 @@ const DoctorsShort = () => {
             icon: faUserNurse,
         },
         {
-            id: 1,
+            id: 3,
             post: 'Patients',
             total: 1000,
             icon: faBed,
         },
         {
-            id: 1,
+            id: 4,
             post: 'Staff',
             total: 300,
             icon: faPeopleCarryBox,
@@ -36,8 +36,8 @@ const DoctorsShort = () => {
     return (
         <div className='doctorsShort'>
             {
-                data.map(post=>(
-                    <DoctorsShortCard post={post} />
+                data.map(post => (
+                    <DoctorsShortCard key={post.id} post={post} />
                 ))
             }
         </div>

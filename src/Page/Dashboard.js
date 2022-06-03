@@ -1,5 +1,6 @@
 import React from 'react';
 import DoctorsShort from '../Components/DoctorsShort.js/DoctorsShort';
+import RCalendar from '../Components/RCalendar/RCalendar';
 import Recharts from '../Components/Recharts/Recharts';
 import './Dashboard.css'
 
@@ -51,8 +52,17 @@ const Dashboard = () => {
     return (
         <div className="dashboard container">
             <DoctorsShort />
-            {/* <Recharts data={data}/> */}
-            
+            <div className="grid-3 ">
+                <div className='chart'>
+                    <Recharts data={data} name='Appointment' />
+                    <Recharts data={data} name='New patient' />
+                    <Recharts data={data} name='Earning' />
+                </div>
+                <div className="calendar py-4">
+                    <RCalendar />
+                </div>
+            </div>
+
 
         </div>
     );

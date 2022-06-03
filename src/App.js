@@ -3,6 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import { userContext } from './context/UserContext'
 import './App.css'
 
+
+import 'react-calendar/dist/Calendar.css';
 import Header from "./Components/Header/Header";
 import RequireAuth from "./Components/RequireAuth/RequireAuth";
 import Dashboard from "./Page/Dashboard";
