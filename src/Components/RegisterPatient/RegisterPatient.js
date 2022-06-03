@@ -1,33 +1,54 @@
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const RegisterPatient = ({ addOne, setAddOne }) => {
+const RegisterPatient = ({ register, setRegister, user }) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
-    const [post, setPost] = useState('doctors')
+    const [disease, setDisease] = useState('')
+    const [phone, setPhone] = useState('')
+    const [address, setAddress] = useState('')
+    const [age, setAge] = useState('')
+    const [doctor, setDoctor] = useState('')
+    const [gender, setGender] = useState('')
+    const [date, setDate] = useState('')
+    const [doctorList, setDoctorList] = useState([])
 
-    const handleAdd = event => {
+    useEffect(() => {
+        axios.get('/json/user.json')
+            .then(res => {
+                if (res.data) {
+                    const doctor = res.data.filter(dctr => dctr.userRole?.toLowerCase() === 'doctor')
+                    setDoctorList(doctor)
+                }
+            })
+    }, [])
+
+
+
+
+
+    const handleAppointment = event => {
         event.preventDefault()
-        const user = { name, email, post }
-        axios.post('/json/user.json', user)
+        const user = { name, email, disease, phone, address, age, doctor, gender, date }
+        axios.post('/json/patient.json', user)
             .then(res => console.log(res.data))
     }
     return (
-        <div className={`addOne ${addOne ? 'active' : ''}`}>
+        <div className={`addOne ${register ? 'active' : ''}`}>
             <div className="addOneBody">
                 <div className="addOneHeader primary-background">
-                    <h2> Add doctors/staff </h2>
-                    <span className="close" onClick={() => setAddOne(false)}>
+                    <h2> Register a patient </h2>
+                    <span className="close" onClick={() => setRegister(false)}>
                         <FontAwesomeIcon icon={faXmark} />
                     </span>
                 </div>
                 <div className="addOneForm">
-                    <form onSubmit={handleAdd}>
+                    <form onSubmit={handleAppointment}>
                         <div className="grid-3">
                             <div className="input_group">
-                                <label htmlFor="name"> Name: </label>
+                                <label htmlFor="name"> Patient Name: </label>
                                 <input
                                     type="text"
                                     id='name'
@@ -37,8 +58,21 @@ const RegisterPatient = ({ addOne, setAddOne }) => {
                                     required
                                 />
                             </div>
+
                             <div className="input_group">
-                                <label htmlFor="email"> Email: </label>
+                                <label htmlFor="disease"> Disease: </label>
+                                <input
+                                    type="text"
+                                    id='disease'
+                                    value={disease}
+                                    onChange={e => setDisease(e.target.value)}
+                                    placeholder='Disease'
+                                    required
+                                />
+                            </div>
+
+                            <div className="input_group">
+                                <label htmlFor="email"> Patient Email: </label>
                                 <input
                                     type="text"
                                     id='email'
@@ -49,15 +83,82 @@ const RegisterPatient = ({ addOne, setAddOne }) => {
                                 />
                             </div>
                             <div className="input_group">
-                                <label htmlFor="post"> Post: </label>
-                                <select name="post" id="post" value={post} onChange={e => setPost(e.target.value)} required >
-                                    <option value="doctors"> Doctors </option>
-                                    <option value="staff"> Staff </option>
+                                <label htmlFor="phone"> Patient Phone Number: </label>
+                                <input
+                                    type="number"
+                                    id='phone'
+                                    value={phone}
+                                    onChange={e => setPhone(e.target.value)}
+                                    placeholder='Phone'
+                                    required
+                                />
+                            </div>
+
+                            <div className="input_group">
+                                <label htmlFor="address"> Patient Address: </label>
+                                <input
+                                    type="text"
+                                    id='address'
+                                    value={address}
+                                    onChange={e => setAddress(e.target.value)}
+                                    placeholder='Address'
+                                    required
+                                />
+                            </div>
+
+                            <div className="input_group">
+                                <label htmlFor="age"> Patient Age: </label>
+                                <input
+                                    type="text"
+                                    id='age'
+                                    value={age}
+                                    onChange={e => setAge(e.target.value)}
+                                    placeholder='Age'
+                                    required
+                                />
+                            </div>
+
+                            <div className="input_group">
+                                <label htmlFor="age"> Date: </label>
+                                <input
+                                    type="date"
+                                    id='date'
+                                    value={date}
+                                    onChange={e => setDate(e.target.value)}
+                                    placeholder='Date'
+                                    required
+                                />
+                            </div>
+
+                            <div className="input_group">
+                                <label htmlFor="doctor"> Doctor: </label>
+                                <select name="doctor" id="doctor" value={doctor} onChange={e => setDoctor(e.target.value)} required >
+                                    <option> Select one </option>
+                                    {
+                                        doctorList.map((doctor, ind) => <option key={ind} value={doctor.name}> {doctor.name} </option>)
+                                    }
                                 </select>
                             </div>
+
+                            <div className="input_group">
+                                <p className='mb-3'>Gender:</p>
+                                <span className="radio">
+                                    <input type="radio" name="gender" id="male" value='male' onClick={e => setGender(e.target.value)} />
+                                    <label htmlFor="male" className='dib'> Male: </label>
+                                </span>
+                                <span className="ra">
+                                    <input type="radio" name="gender" id="female" value='female' onClick={e => setGender(e.target.value)} />
+                                    <label htmlFor="female" className='dib'> Female: </label>
+                                </span>
+                            </div>
+
+
                         </div>
 
-                        <button type="submit" className='button_primary'> Add new </button>
+                        <button type="submit" disabled={!(user?.userRole === 'staff')} className='button_primary'> New Appointment </button>
+                        {
+                            user?.userRole === 'staff' ? '' : <span className="red-color"> This section only for staff </span>
+                        }
                     </form>
                 </div>
             </div>

@@ -15,6 +15,10 @@
     padding: 30px 0;
 }
 
+button:disabled{
+    cursor: no-drop;
+    opacity: .5;
+}
 
 @media (max-width: 768px) {
     .addOne {
@@ -45,6 +49,7 @@
 
 .addOne .addOneHeader .close {
     cursor: pointer;
+    padding-left: 15px;
 }
 
 .addOne .addOneForm {
@@ -56,10 +61,21 @@
     margin-bottom: 5px;
 }
 
-.addOne .addOneForm input,
+.addOne .addOneForm input:not([type='radio']),
 .addOne .addOneForm select {
     display: block;
     width: 100%;
     padding: 10px;
     border: 1px solid rgba(144, 144, 144, 0.305);
+}
+
+.addOne .input_group .radio{
+    margin: 10px;
+}
+
+
+
+
+.addOne p.red-color{
+    padding: 20px;
 }

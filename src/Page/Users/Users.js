@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Card from '../../Components/Card/Card';
+import Header from '../../Components/Header/Header';
 import './Users.css'
 
 const Doctors = () => {
@@ -18,15 +19,18 @@ const Doctors = () => {
 
 
     return (
-        <div className='container'>
-            <div className="grid_card">
-                {
-                    users && users.map((doctor, index) => (
-                        <Card key={index} user={doctor} />
-                    ))
-                }
+        <>
+            <Header />
+            <div className='container'>
+                <div className="grid_card">
+                    {
+                        users && users.map((doctor, index) => (
+                            <Card key={index} user={doctor} />
+                        ))
+                    }
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

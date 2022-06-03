@@ -4,7 +4,8 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import './AddOne.css'
 
-const AddOne = ({ addOne, setAddOne }) => {
+const AddOne = ({ addOne, setAddOne, user }) => {
+
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -14,7 +15,7 @@ const AddOne = ({ addOne, setAddOne }) => {
         event.preventDefault()
         const user = { name, email, post }
         axios.post('/json/user.json', user)
-            .then(res => console.log(res.data))
+            .then(res => window.alert('login successfully'))
     }
     return (
         <div className={`addOne ${addOne ? 'active' : ''}`}>
@@ -59,7 +60,11 @@ const AddOne = ({ addOne, setAddOne }) => {
                             </div>
                         </div>
 
-                        <button type="submit" className='button_primary'> Add new </button>
+                        <button type="submit" disabled={!(user?.userRole === 'admin')} className='button_primary'> Add new </button>
+                        {
+                            user?.userRole === 'admin' ? '' : <span className="red-color"> This section only for admin </span>
+                        }
+                        
                     </form>
                 </div>
             </div>

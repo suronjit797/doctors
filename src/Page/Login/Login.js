@@ -51,7 +51,10 @@ const Login = () => {
     return (
         <div className='login'>
             <div className="container">
-                <div>left</div>
+                <div>
+                    <h2 className='primary-color mb-3'> Welcome to doctors portals </h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima ab molestiae, mollitia incidunt possimus officiis. Deserunt, odit rem inventore magnam vitae facilis expedita quas, velit dolorem obcaecati optio itaque dolor, illo eius hic ipsam? Delectus?</p>
+                </div>
                 <div className='auth'>
                     <form onSubmit={handleLogin} className='auth_form'>
                         <label htmlFor="email">

@@ -1,6 +1,7 @@
 import React from 'react';
 import ActiveDoctor from '../Components/ActiveDoctor/ActiveDoctor';
 import DoctorsShort from '../Components/DoctorsShort.js/DoctorsShort';
+import Header from '../Components/Header/Header';
 import RCalendar from '../Components/RCalendar/RCalendar';
 import Recharts from '../Components/Recharts/Recharts';
 import './Dashboard.css'
@@ -51,24 +52,26 @@ const Dashboard = () => {
         },
     ];
     return (
-        <div className="dashboard container">
-            <DoctorsShort />
-            <div className="grid-3 ">
-                <div className='chart'>
-                    <Recharts data={data} name='Appointment' />
-                    <Recharts data={data} name='New patient' />
-                    <Recharts data={data} name='Earning' />
-                </div>
-                <div className="calendar py-4">
-                    <RCalendar />
-                </div>
-                <div className="activeDoctors py-4">
-                    <ActiveDoctor />
+
+        <>
+            <Header />
+            <div className="dashboard container">
+                <DoctorsShort />
+                <div className="grid-3 ">
+                    <div className='chart'>
+                        <Recharts data={data} name='Appointment' />
+                        <Recharts data={data} name='New patient' />
+                        <Recharts data={data} name='Earning' />
+                    </div>
+                    <div className="calendar py-4">
+                        <RCalendar />
+                    </div>
+                    <div className="activeDoctors py-4">
+                        <ActiveDoctor />
+                    </div>
                 </div>
             </div>
-
-
-        </div>
+        </>
     );
 };
 

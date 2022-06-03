@@ -51,6 +51,7 @@
     transition: .3s ease;
     background-color: #fff;
     border-radius: 5px;
+    z-index: 9;
 }
 
 .main_menu .user_profile-modal.active{

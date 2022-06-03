@@ -9,6 +9,7 @@ import Header from "./Components/Header/Header";
 import RequireAuth from "./Components/RequireAuth/RequireAuth";
 import Dashboard from "./Page/Dashboard";
 import Login from "./Page/Login/Login";
+import Staff from "./Page/Staff/Staff";
 import Users from "./Page/Users/Users";
 
 function App() {
@@ -18,11 +19,11 @@ function App() {
   return (
     <div className="app">
       <userContext.Provider value={{ user, setUser }}>
-        <Header />
         <Routes>
           <Route path="/" element={<RequireAuth> <Dashboard /> </RequireAuth>} />
-          <Route path="/login" element={<RequireAuth> <Login /> </RequireAuth>} />
+          <Route path="/login" element={<Login />} />
           <Route path="/users" element={<RequireAuth> <Users /> </RequireAuth>} />
+          <Route path="/patients" element={<RequireAuth> <Staff /> </RequireAuth>} />
         </Routes>
       </userContext.Provider>
     </div>

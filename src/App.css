@@ -2,6 +2,8 @@
   --primary-color: #6c5ce7;
   --primary-color-dark: #3d2eb4;
   --secondary-color: #00cec9;
+  --third-color: #ff7675;
+  --third-color-dark: #ff5050;
 
 }
 
@@ -47,7 +49,7 @@ img {
 }
 
 .red-color {
-  color: #ff7675;
+  color: var(--third-color);
 }
 
 .primary-background {
@@ -63,7 +65,7 @@ img {
 }
 
 .red-background {
-  background: #ff7675;
+  background: var(--third-color);
 }
 
 
@@ -78,6 +80,10 @@ img {
 
 .d-flex {
   display: flex;
+}
+
+.dib{
+  display: inline-block !important;
 }
 
 
@@ -116,15 +122,29 @@ img {
 .button_primary {
   color: #fff;
   background-color: var(--primary-color);
-  padding: 15px 50px;
+  padding: 15px 30px;
   border-radius: 30px;
   cursor: pointer;
   transition: .3s ease;
   border: transparent;
 }
 
-.border_button:hover {
+.button_primary:hover {
   background-color: var(--primary-color-dark);
+}
+
+.button_red {
+  color: #fff;
+  background-color: var(--third-color);
+  padding: 15px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: .3s ease;
+  border: transparent;
+}
+
+.button_red:hover {
+  background-color: var(--third-color-dark);
 }
 
 .cursor-pointer {
@@ -133,6 +153,9 @@ img {
 
 .app {
   overflow-x: hidden;
+}
+.text-through{
+  text-decoration: line-through;
 }
 
 /* grid */
@@ -153,12 +176,19 @@ input:focus {
 .mb-3 {
   margin-bottom: 9px;
 }
+.mt-4 {
+  margin-top: 12px;
+}
 
 .py-4 {
   padding-top: 12px;
   padding-bottom: 12px;
 }
 
+.mx-4{
+  margin-left: 12px;
+  margin-left: 12px;
+}
 
 @media (min-width: 576px) {
   .container {
@@ -190,4 +220,12 @@ input:focus {
   .container {
     width: 1140px;
   }
+}
+
+
+
+table{
+  width: 100%;
+  text-align: center;
+  padding: 15px;
 }
